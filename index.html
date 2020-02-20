@@ -327,25 +327,17 @@
       
         
           
-            <p><em>纵有疾风起–人生不言弃</em></p>
-<hr>
-
+            <p>纵有疾风起–人生不言弃</p>
 <h2 id="PHP中提交数据"><a href="#PHP中提交数据" class="headerlink" title="PHP中提交数据"></a>PHP中提交数据</h2><p>在from表单中submit提交数据有两种方式：get 和 post</p>
 <p>今天只学习get方式，此时有一个html页面，其中有一个表单</p>
 <pre><code>&lt;form action=&quot;./getData.php&quot; method=&quot;GET&quot; &gt;
     &lt;input name=&quot;lol_hero&quot; type=&quot;text&quot; placeholder=&quot;请输入要查询的英雄&quot;&gt;
     &lt;input type=&quot;submit&quot; value=&quot;查询&quot;&gt;
-&lt;/form&gt;</code></pre><p>如下所示<br><br></p>
-<form action="./getData.php" method="GET" >
-        <input name="lol_hero" type="text" placeholder="请输入要查询的英雄">
-        <input type="submit" value="查询">
-    </form>
-
-<p>此时点击查询，则会将文本框中输入的信息提交到”./getData.php”的页面，那么，怎么来接收数据呢？</p>
+&lt;/form&gt;</code></pre><p>此时点击查询，则会将文本框中输入的信息提交到”./getData.php”的页面，那么，怎么来接收数据呢？</p>
 <p>在PHP中提供了超全局变量  $_GET，来接收get方法所提交的数据，$_GET和js中的window对象类似 ,不需要定义可直接使用<br>例：</p>
 <pre><code>print_r($_GET);
-//champion_name=&gt;凯隐</code></pre><h3 id="如何从-GET中取出数据呢？"><a href="#如何从-GET中取出数据呢？" class="headerlink" title="如何从$_GET中取出数据呢？"></a>如何从$_GET中取出数据呢？</h3><p>和关联数组取出数据的方法一样，只需要 $_GET[‘TagName’]即可取出get方法所提交的数据。</p>
-<p>注:TagName是指input标签中name属性的值</p>
+//champion_name=&gt;凯隐</code></pre><h3 id="如何从-GET中取出数据呢"><a href="#如何从-GET中取出数据呢" class="headerlink" title="如何从$_GET中取出数据呢"></a>如何从$_GET中取出数据呢</h3><p>和关联数组取出数据的方法一样，只需要 $_GET[‘TagName’]即可取出get方法所提交的数据。</p>
+<p>注: TagName是指input标签中name属性的值</p>
 
           
         
@@ -487,10 +479,8 @@
       
         
           
-            <h3 id="PHP关联数组的遍历方法"><a href="#PHP关联数组的遍历方法" class="headerlink" title="PHP关联数组的遍历方法"></a>PHP关联数组的遍历方法</h3><p>php关联数组的遍历,使用foreach方法<br>代码：</p>
-<pre><code>$array2 = array(&apos;name&apos;=&gt;&apos;mhs&apos;,&apos;age&apos;=&gt;18,&apos;gender&apos;=&gt;&apos;male&apos;);
-
-foreach($arry as $key =&gt; $value){
+            <h3 id="PHP关联数组的遍历方法"><a href="#PHP关联数组的遍历方法" class="headerlink" title="PHP关联数组的遍历方法"></a>PHP关联数组的遍历方法</h3><p>php关联数组的遍历,使用foreach方法<br>代码：<br>        $array2 = array(‘name’=&gt;’mhs’,’age’=&gt;18,’gender’=&gt;’male’);</p>
+<pre><code>foreach($arry as $key =&gt; $value){
     echo $key.&apos;----&apos;.$value;
 }</code></pre><p>输出</p>
 <pre><code>name----mhsage----18gender----male</code></pre><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>数组内包含数组即可</p>
@@ -672,7 +662,7 @@ PHP即“超文本预处理器”，是一种通用开源脚本语言。PHP是�
 <li><p>设置编码格式</p>
 <pre><code>header(&apos;content-type:text/html;charset=utf-8&apos;);</code></pre></li>
 <li><p>输出方法 echo</p>
-<p>  类似于JavaScript中的document.write()</p>
+<p>  类似于JavaScript中的document.write()               </p>
 <pre><code>echo&quot;hello world!&quot;;//echo中使用.拼接字符串
 例:
 echo &apos;abc&apos;.&apos;bcd&apos;; //abcbcd</code></pre><p>注：php文件命名不可使用中文，不然会报错。</p>
