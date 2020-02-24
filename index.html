@@ -132,7 +132,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -220,6 +220,207 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/Ajax%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/24/Ajax%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url">Ajax学习（四）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-24T21:57:01+08:00">
+                2020-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AJAX-onreadystatechange-事件"><a href="#AJAX-onreadystatechange-事件" class="headerlink" title="AJAX - onreadystatechange 事件"></a>AJAX - onreadystatechange 事件</h1><h2 id="onreadystatechange-事件"><a href="#onreadystatechange-事件" class="headerlink" title="onreadystatechange 事件"></a>onreadystatechange 事件</h2><p>当请求被发送到服务器时，需要执行一些基于响应的任务。<br>每当 readyState 改变时，就会触发 onreadystatechange 事件。<br>readyState 属性存有 XMLHttpRequest 的状态信息。</p>
+<p>下面是 XMLHttpRequest 对象的三个重要的属性：</p>
+<table class="reference notranslate">
+<tr>
+<th align="left" width="20%">属性</th>
+    <th align="left" width="80%">描述</th>
+  </tr>
+<tr>
+<td>onreadystatechange</td>
+    <td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+  </tr>
+<tr>
+<td>readyState</td>
+    <td>    <p>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+    <ul class="listintable">
+    <li>0: 请求未初始化</li>
+    <li>1: 服务器连接已建立</li>
+    <li>2: 请求已接收</li>
+    <li>3: 请求处理中</li>
+    <li>4: 请求已完成，且响应已就绪</li>
+    </ul>
+</td>
+  </tr>
+<tr>
+<td>status</td>
+    <td>200: "服务器成功返回网页"<br>
+    404: 未找到页面</td>
+  </tr>
+</table>
+
+
+<p>代码验证：</p>
+<pre><code>//创建异步对象
+var xhr = new XMLHttpRequest();
+
+//设置请求行
+xhr.open(&apos;get&apos;,&apos;./xxx.php&apos;);
+
+//设置请求头
+//xhr.setRequestHeader(&quot;Contant-type&quot;,&quot;x-www-form-urlencoded&quot;);
+
+//注册回调函数
+//xhr.onload
+xhr.onreadystatechange=function(){
+    //当xhr.readyState属性改变时,就会重新调用onreadystatechange函数
+
+    console.log(xhr.status);
+
+    if(xhr.status == 200 &amp;&amp;xhr.readyState==4){
+        //判断当请求已完成，且响应已就绪返回内容
+        console.log(xhr.readyState);//4
+        console.log(xhr.status);//200
+        console.log(xhr.responseText);//hello
+
+    }
+
+
+}
+
+//发送请求主体 get请求为空，post请求写里面，没有不写
+xhr.send();</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -327,9 +528,166 @@
       
         
           
-            <h1 id="Ajax练习—图灵机器人"><a href="#Ajax练习—图灵机器人" class="headerlink" title="Ajax练习—图灵机器人"></a>Ajax练习—图灵机器人</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>图灵机器人是以语义技术为核心驱动力的人工智能公司 ，致力于“让机器理解世界”，产品服务包括机器人开放平台、机器人OS和场景方案。通过图灵机器人，开发者和厂商能够以高效的方式创建专属的聊天机器人、客服机器人、领域对话问答机器人、儿童/服务机器人等。图灵机器人的大部分功能是要收费的。图灵机器人本身已经有了较为成熟的接入市场的方式，比如微信公众号，甚至个人微信号，QQ都有较为简单的使用方式。</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="第一步：注册和新建机器人然后获取APIKEY"><a href="#第一步：注册和新建机器人然后获取APIKEY" class="headerlink" title="第一步：注册和新建机器人然后获取APIKEY"></a>第一步：注册和新建机器人然后获取APIKEY</h3><p>TuringRobot 官方给出了详细的Web API-帮助中心 ，使用流程中包含注册账号，获取APIKEY，请求方式等详细信息，最初开发者在使用的时候不妨详细阅读此卡发文档。</p>
-<p><img src="https://github.com/MHz777/MHz777.github.io/tree/master/images/QQ20200223221856.jpg" alt="添加机器人"></p>
+              <style>
+    body {
+      margin: 0;
+      padding: 20px;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: '';
+      visibility: hidden;
+      clear: both;
+      line-height: 0;
+      height: 0;
+      display: block;
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+
+    .f_l {
+      float: left;
+    }
+
+    .f_r {
+      float: right;
+    }
+
+    .container {
+      margin: 50px auto 0;
+      width: 800px;
+      height: 500px;
+      border: 1px solid skyblue;
+      border-radius: 10px;
+    }
+
+    .message {
+      border-bottom: 1px solid skyblue;
+      height: 400px;
+      overflow-y: scroll;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: all 2s;
+    }
+
+    .control {
+      height: 100px;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .inputBox {
+      height: 60px;
+      margin-top: 20px;
+      border-radius: 6px;
+      outline: none;
+      padding: 0;
+      box-sizing: border-box;
+      width: 500px;
+      font-size: 30px;
+      box-shadow: 0 0 3px gray;
+      border: 1px solid #ccc;
+      transition: all .2s;
+      padding-left: 10px;
+    }
+
+    .inputBox:focus {
+      border-color: skyblue;
+      box-shadow: 0 0 3px skyblue;
+    }
+
+    .sendButton {
+      height: 70px;
+      margin-top: 15px;
+      background-color: yellowgreen;
+      width: 150px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 40px;
+      font-family: '微软雅黑';
+      cursor: pointer;
+    }
+
+    .message>div>a {
+      text-decoration: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: skyblue;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      font-size: 25px;
+      font-weight: 700;
+      font-family: '微软雅黑';
+    }
+
+    .message>.robot>a {
+      background-color: hotpink;
+    }
+
+    .message>.self>a {
+      background-color: yellowgreen;
+    }
+
+    .message>div {
+      padding: 10px 0;
+    }
+
+    .message>div>p {
+      max-width: 300px;
+      min-height: 28px;
+      margin: 0 10px;
+      padding: 10px 10px;
+      background-color: #ccc;
+      border-radius: 10px;
+      word-break: break-all;
+      position: relative;
+      line-height: 28px;
+      font-weight: 400;
+      font-family: '微软雅黑';
+      color: white;
+      font-size: 20px;
+    }
+
+    .message>.robot>p {
+      background-color: skyblue;
+    }
+
+    .message>.robot>p::before {
+      content: '';
+      position: absolute;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid skyblue;
+      left: -5px;
+      top: 15px;
+    }
+
+    .message>.self>p {
+      color: black;
+    }
+
+    .message>.self>p::before {
+      content: '';
+      position: absolute;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid #ccc;
+      right: -6px;
+      top: 15px;
+    }
+  </style>
+
+
+<h1 id="Ajax练习—图灵机器人"><a href="#Ajax练习—图灵机器人" class="headerlink" title="Ajax练习—图灵机器人"></a>Ajax练习—图灵机器人</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>图灵机器人是以语义技术为核心驱动力的人工智能公司 ，致力于“让机器理解世界”，产品服务包括机器人开放平台、机器人OS和场景方案。通过图灵机器人，开发者和厂商能够以高效的方式创建专属的聊天机器人、客服机器人、领域对话问答机器人、儿童/服务机器人等。图灵机器人的大部分功能是要收费的。图灵机器人本身已经有了较为成熟的接入市场的方式，比如微信公众号，甚至个人微信号，QQ都有较为简单的使用方式。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h3 id="第一步：注册和新建机器人然后获取APIKEY"><a href="#第一步：注册和新建机器人然后获取APIKEY" class="headerlink" title="第一步：注册和新建机器人然后获取APIKEY"></a>第一步：注册和新建机器人然后获取APIKEY</h3><p>TuringRobot 官方给出了详细的Web API-帮助中心 ，使用流程中包含注册账号，获取APIKEY，请求方式等详细信息。</p>
+<p><img src="https://github.com/MHz777/MHz777.github.io/tree/master/images/QQ20200223221856.jpg" alt=""></p>
 <h3 id="第二部：使用ajax调用接口"><a href="#第二部：使用ajax调用接口" class="headerlink" title="第二部：使用ajax调用接口"></a>第二部：使用ajax调用接口</h3><p>代码如下：</p>
 <pre><code>   //ajax请求
    //1.创建对象
@@ -355,170 +713,7 @@
 
    xhr.send(&apos;key=yourapikey&amp;info=&apos;+$(&apos;.inputBox&apos;).val());
 
-});</code></pre><!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-    }
-
-<pre><code>.clearfix::before,
-.clearfix::after {
-  content: &apos;&apos;;
-  visibility: hidden;
-  clear: both;
-  line-height: 0;
-  height: 0;
-  display: block;
-}
-
-.clearfix {
-  zoom: 1;
-}
-
-.f_l {
-  float: left;
-}
-
-.f_r {
-  float: right;
-}
-
-.container {
-  margin: 50px auto 0;
-  width: 800px;
-  height: 500px;
-  border: 1px solid skyblue;
-  border-radius: 10px;
-}
-
-.message {
-  border-bottom: 1px solid skyblue;
-  height: 400px;
-  overflow-y: scroll;
-  padding: 20px;
-  box-sizing: border-box;
-  transition: all 2s;
-}
-
-.control {
-  height: 100px;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-.inputBox {
-  height: 60px;
-  margin-top: 20px;
-  border-radius: 6px;
-  outline: none;
-  padding: 0;
-  box-sizing: border-box;
-  width: 500px;
-  font-size: 30px;
-  box-shadow: 0 0 3px gray;
-  border: 1px solid #ccc;
-  transition: all .2s;
-  padding-left: 10px;
-}
-
-.inputBox:focus {
-  border-color: skyblue;
-  box-shadow: 0 0 3px skyblue;
-}
-
-.sendButton {
-  height: 70px;
-  margin-top: 15px;
-  background-color: yellowgreen;
-  width: 150px;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  color: white;
-  font-size: 40px;
-  font-family: &apos;微软雅黑&apos;;
-  cursor: pointer;
-}
-
-.message&gt;div&gt;a {
-  text-decoration: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: skyblue;
-  text-align: center;
-  line-height: 50px;
-  color: white;
-  font-size: 25px;
-  font-weight: 700;
-  font-family: &apos;微软雅黑&apos;;
-}
-
-.message&gt;.robot&gt;a {
-  background-color: hotpink;
-}
-
-.message&gt;.self&gt;a {
-  background-color: yellowgreen;
-}
-
-.message&gt;div {
-  padding: 10px 0;
-}
-
-.message&gt;div&gt;p {
-  max-width: 300px;
-  min-height: 28px;
-  margin: 0 10px;
-  padding: 10px 10px;
-  background-color: #ccc;
-  border-radius: 10px;
-  word-break: break-all;
-  position: relative;
-  line-height: 28px;
-  font-weight: 400;
-  font-family: &apos;微软雅黑&apos;;
-  color: white;
-  font-size: 20px;
-}
-
-.message&gt;.robot&gt;p {
-  background-color: skyblue;
-}
-
-.message&gt;.robot&gt;p::before {
-  content: &apos;&apos;;
-  position: absolute;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-right: 6px solid skyblue;
-  left: -5px;
-  top: 15px;
-}
-
-.message&gt;.self&gt;p {
-  color: black;
-}
-
-.message&gt;.self&gt;p::before {
-  content: &apos;&apos;;
-  position: absolute;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid #ccc;
-  right: -6px;
-  top: 15px;
-}</code></pre><p>  </style></p>
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body>
-  <h1>图灵机器人</h1>
+});</code></pre>  <h1>图灵机器人</h1>
   <div class="container">
     <div class="message">
       <div class="robot clearfix">
@@ -2077,7 +2272,7 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
