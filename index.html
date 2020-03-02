@@ -234,6 +234,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/02/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/" itemprop="url">微信小程序中事件冒泡</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T13:53:00+08:00">
+                2020-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="微信小程序中事件冒泡"><a href="#微信小程序中事件冒泡" class="headerlink" title="微信小程序中事件冒泡"></a>微信小程序中事件冒泡</h1><h2 id="什么是事件冒泡？"><a href="#什么是事件冒泡？" class="headerlink" title="什么是事件冒泡？"></a>什么是事件冒泡？</h2><p>例如页面上的元素绑定了有很多事件：</p>
+<pre><code>&lt;BODY onclick=&quot;alert(&apos;aaa&apos;);&quot;&gt;
+&lt;div onclick=&quot;alert(&apos;bbb&apos;);&quot;&gt;
+ &lt;a href=&quot;#&quot; class=&quot;cooltip&quot; title=&quot;这是我的超链接提示1。&quot; onclick=&quot;alert(&apos;ddd&apos;);&quot;&gt;
+   提示
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;/BODY&gt;</code></pre><p>当点击a标签的时候触发了点击事件，页面弹出提示框ddd，之后a标签的父元素div和body会依次触发各自绑定的事件，这样的现象就是事件冒泡。</p>
+<h2 id="微信小程序中的事件冒泡"><a href="#微信小程序中的事件冒泡" class="headerlink" title="微信小程序中的事件冒泡"></a>微信小程序中的事件冒泡</h2><p>在微信小程序中，事件的类别分为几种：</p>
+<p>点击事件：tap<br><br>长按事件：longtap<br><br>触摸事件：touchstart； touchend；touchcancel；touchmove<br><br>其他：input；submit….</p>
+<p>其中前三类是冒泡事件，其他的称为非冒泡事件。</p>
+<h2 id="如何阻止事件冒泡？"><a href="#如何阻止事件冒泡？" class="headerlink" title="如何阻止事件冒泡？"></a>如何阻止事件冒泡？</h2><ol>
+<li><p>使用 catch 不用bind<br>bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。例：</p>
+<pre><code>&lt;view id=&quot;outer&quot;          bindtap=&quot;handleTap1&quot;&gt;
+  outer view
+  &lt;view id=&quot;middle&quot;          catchtap=&quot;handleTap2&quot;&gt;
+    middle view
+    &lt;view id=&quot;inner&quot;          bindtap=&quot;handleTap3&quot;&gt;
+      inner view
+    &lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;</code></pre></li>
+<li><p>在方法最后加上return false即可</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/Ajax%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2045,7 +2211,7 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2056,7 +2222,7 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2067,7 +2233,7 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
