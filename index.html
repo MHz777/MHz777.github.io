@@ -234,6 +234,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%9F%8E%E5%B8%82%E5%90%8D%E7%A7%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/15/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%9F%8E%E5%B8%82%E5%90%8D%E7%A7%B0/" itemprop="url">微信小程序：获取地理定位和显示相应的城市名称</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-15T21:12:00+08:00">
+                2020-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="微信小程序：获取地理定位和显示相应的城市名称"><a href="#微信小程序：获取地理定位和显示相应的城市名称" class="headerlink" title="微信小程序：获取地理定位和显示相应的城市名称"></a>微信小程序：获取地理定位和显示相应的城市名称</h1><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>小程序的wx.getLocation()获得是经纬度并不包含地名，所以要通过经纬度用相应的地图转换出地名（本文使用的是百度地图）。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程  "></a>过程  </h2><ol>
+<li><strong>代码</strong>：</li>
+</ol>
+<p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006113432927-653104190.png" alt=""></p>
+<p>1.1 <strong>代码详解</strong>：</p>
+<p>　wx.getLocation(object)：获取当前的地理位置、速度。注意：需要用户授权地理定位权限。</p>
+<p>　　　　详细参数说明请查看小程序API：<a href="https://developers.weixin.qq.com/miniprogram/dev/api/location.html#wxgetlocationobject" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/location.html#wxgetlocationobject</a></p>
+<p>　让我们看看wx.getLocation()成功后获得到的数据：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006113432927-653104190.png" alt=""></p>
+<p>从获得到的数据我们可以看到并没有我们想要的地名，因此就需要我们把经纬度转换成相应的地名，本文使用的是百度地图相应功能转换出相应地名。</p>
+<p>1.2  <strong>百度地图的准备工作</strong></p>
+<p>　1.在使用百度地图API之前，首先要获得百度地图的密钥ak，ak由百度地图方生成；</p>
+<p>　　　　2.打开百度地图开放平台，导航栏处选择 “开发文档” &gt; “微信小程序JavaScript API”，在“入门指南”处有详细介绍怎么生成密钥ak，本文不再介绍。</p>
+<p>　　　　　　参考文档：<a href="http://lbsyun.baidu.com/index.php?title=wxjsapi/guide/key" target="_blank" rel="noopener">http://lbsyun.baidu.com/index.php?title=wxjsapi/guide/key</a></p>
+<p>　　　　3.复制生成好的ak,把ak粘贴到小程序中。其实，百度地图有提供小程序使用的地图api的压缩包，但是出于小程序发布时对大小的限制，我选择了使用链接。</p>
+<p>　　　　　　百度地图线上转换链接地址：<a href="https://api.map.baidu.com/geocoder/v2/?ak=获得的AK&amp;location=&#39;" target="_blank" rel="noopener">https://api.map.baidu.com/geocoder/v2/?ak=获得的AK&amp;location=&#39;</a> + latitude + ‘,’ + longitude + ‘&amp;output=json’</p>
+<p>　　　　4.使用小程序的账号登录微信公众平台(<a href="https://mp.weixin.qq.com/)，在“设置”" target="_blank" rel="noopener">https://mp.weixin.qq.com/)，在“设置”</a> 中选择 “开发设置”，把百度地图api的url添加到request合法域名中。</p>
+<p>　　　　　注意：百度地图提供的有关于小程序API的下载包，不想使用链接地址的可以使用下载包，出于小程序发布时对大小的限制，本文使用的是链接地址未使用下载包。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006173958746-1753084440.png" alt=""></p>
+<p>　5.此时准备工作完成，便可以直接在小程序中根据经纬度转换出相应的地名了，代码如下图:</p>
+<p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006174342502-1576700141.png" alt=""></p>
+<p>　让我们看看success里的参数输出：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006175513943-645716074.png" alt=""></p>
+<h3 id="附完整代码："><a href="#附完整代码：" class="headerlink" title="附完整代码："></a>附完整代码：</h3><p><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006111723024-2050175040.png" alt=""><br><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006194342263-2102189813.png" alt=""></p>
+<p>wxml中进行数据绑定。<br><img src="https://img2018.cnblogs.com/blog/1425298/201810/1425298-20181006184311190-1716449756.png" alt=""></p>
+<p>文章转载自<a href="https://www.cnblogs.com/liuyuanfang/p/9748074.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuyuanfang/p/9748074.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1936,234 +2104,13 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHS">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHz777">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/15/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">markdown的语法学习（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-15T22:06:00+08:00">
-                2020-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>哈喽你好，这是我的第一篇博客，用来记录markdown的学习过程</p>
-<h2 id="一、编辑器的选择"><a href="#一、编辑器的选择" class="headerlink" title="一、编辑器的选择"></a>一、编辑器的选择</h2><p>&nbsp;&nbsp;如markdown、sublime、vscode等等都可以按照个人喜好来选择，我比较懒电脑上有现成的vscode，所以直接使用的是vscode，vscode的优点在此我就不阐述了，感兴趣的话可以去了解一下。</p>
-<br>
-
-<h2 id="二、行内语法规则"><a href="#二、行内语法规则" class="headerlink" title="二、行内语法规则"></a>二、行内语法规则</h2><h2 id="2-1-注释"><a href="#2-1-注释" class="headerlink" title="2.1 注释"></a>2.1 注释</h2><p>markdown中支持html标签的方式，所以注释可使用常用的ctrl+/ 的方式，例如：</p>
-<pre><code>&lt;!-- 你好我是注释 --&gt;</code></pre><p> 这一行文字就不会显示在页面上  </p>
-<br>
-
-
-
-<h2 id="2-2-分级标题、任务列表"><a href="#2-2-分级标题、任务列表" class="headerlink" title="2.2 分级标题、任务列表"></a>2.2 分级标题、任务列表</h2><pre><code># 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题  &lt;!--最多6级标题--&gt;</code></pre><p>示例效果如下：</p>
-<h1 id="nbsp-nbsp-nbsp-一级标题"><a href="#nbsp-nbsp-nbsp-一级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;一级标题"></a>&nbsp;&nbsp;&nbsp;一级标题</h1><h2 id="nbsp-nbsp-nbsp-nbsp-二级标题"><a href="#nbsp-nbsp-nbsp-nbsp-二级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;二级标题"></a>&nbsp;&nbsp;&nbsp;&nbsp;二级标题</h2><h3 id="nbsp-nbsp-nbsp-nbsp-三级标题"><a href="#nbsp-nbsp-nbsp-nbsp-三级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;三级标题"></a>&nbsp;&nbsp;&nbsp;&nbsp;三级标题</h3><h4 id="nbsp-nbsp-nbsp-nbsp-四级标题"><a href="#nbsp-nbsp-nbsp-nbsp-四级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;四级标题"></a>&nbsp;&nbsp;&nbsp;&nbsp;四级标题</h4><h5 id="nbsp-nbsp-nbsp-nbsp-五级标题"><a href="#nbsp-nbsp-nbsp-nbsp-五级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;五级标题"></a>&nbsp;&nbsp;&nbsp;&nbsp;五级标题</h5><h6 id="nbsp-nbsp-nbsp-nbsp-六级标题"><a href="#nbsp-nbsp-nbsp-nbsp-六级标题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;六级标题  "></a>&nbsp;&nbsp;&nbsp;&nbsp;六级标题  <!--最多6级标题--></h6><br>
-
-<h2 id="2-3-任务列表"><a href="#2-3-任务列表" class="headerlink" title="2.3 任务列表"></a>2.3 任务列表</h2><p>markdown语法：</p>
-<pre><code>- 未做任务 `未做任务`
-- 已做任务 `已做任务`</code></pre><p>效果</p>
-<ul>
-<li>未做任务 <code>未做任务</code><ul>
-<li>已做任务 <code>已做任务</code></li>
-</ul>
-</li>
-</ul>
-<p>说实话我也不明白这个’’到底是干什么用的，但是效果就是这样，嘻嘻</p>
-<h2 id="2-4-文字粗体斜体删除线"><a href="#2-4-文字粗体斜体删除线" class="headerlink" title="2.4 文字粗体斜体删除线"></a>2.4 文字粗体斜体删除线</h2><pre><code>*斜体*
-**粗体**
-***粗斜体***
-~~删除线~~</code></pre><p>&nbsp;&nbsp;<em>斜体</em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>粗体</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><em>粗体斜体</em></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<del>删除线</del></p>
-<h2 id="2-5-缩进、换行、对齐方式"><a href="#2-5-缩进、换行、对齐方式" class="headerlink" title="2.5 缩进、换行、对齐方式"></a>2.5 缩进、换行、对齐方式</h2><pre><code>【1】 &amp;emsp;或&amp;#8195; //全角
-【2】 &amp;ensp;或&amp;#8194; //半角
-【3】 &amp;nbsp;或&amp;#160;  //半角之半角</code></pre><ul>
-<li>换行</li>
-</ul>
-<p>由于markdown编辑器的不同,可能在一行字后面，直接换行回车，也能实现换行，但是在Visual Studio Code上，想要换行必须得在<strong>一行字后面空两个格子才行</strong>。</p>
-<ul>
-<li><p>对齐方式</p>
-<pre><code>&lt;center&gt;行中心对齐&lt;/center&gt;
-&lt;p align=&quot;left&quot;&gt;行左对齐&lt;/p&gt;
-&lt;p align=&quot;right&quot;&gt;行右对齐&lt;/p&gt;</code></pre></li>
-</ul>
-<h2 id="2-6-超链接、页内链接、自动链接、注脚"><a href="#2-6-超链接、页内链接、自动链接、注脚" class="headerlink" title="2.6 超链接、页内链接、自动链接、注脚"></a>2.6 超链接、页内链接、自动链接、注脚</h2><ul>
-<li>超链接</li>
-</ul>
-<pre><code>[linkname](href &quot;title&quot;)
-[链接名]+(链接)+空格+&quot;title（即鼠标放在链接要显示的字符）&quot;</code></pre><p>效果：</p>
-<p>请打开 <a href="https:bilibili.com" target="_blank" rel="noopener" title="bilibili">哔哩哔哩动画</a></p>
-<p>或者</p>
-<p>&lt;<a href="http://www.bilibili.com&gt;" target="_blank" rel="noopener">www.bilibili.com&gt;</a> 自动链接</p>
-<ul>
-<li><p>超链接另一种方式:</p>
-<pre><code>[baidu][baidulink]
-//中间需要换行
-[baidulink]: www.baidu.com</code></pre></li>
-</ul>
-<p>效果:</p>
-<p><a href="www.baidu.com">baidu</a></p>
-<ul>
-<li>注脚</li>
-</ul>
-<p>语法说明：</p>
-<p>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。</p>
-<p>注意：经测试注脚与注脚之间必须空一行，不然会失效。成功后会发现，即使你没有把注脚写在文末，经Markdown转换后，也会自动归类到文章的最后。</p>
-<p>代码：</p>
-<pre><code>使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2]。
-
-[^1]:Markdown是一种纯文本标记语言
-
-[^2]:HyperText Markup Language 超文本标记语言</code></pre><p>效果：</p>
-<p>使用 Markdown<a href="Markdown是一种纯文本标记语言">^1</a>可以效率的书写文档, 直接转换成 HTML[^2]。</p>
-<p>[^2]:HyperText Markup Language 超文本标记语言</p>
-<h2 id="2-7-图片插入"><a href="#2-7-图片插入" class="headerlink" title="2.7 图片插入"></a>2.7 图片插入</h2><p>代码：</p>
-<pre><code>![photoname](href &quot;title&quot;)
-[图片]+(链接)+空格+&quot;title（即鼠标放在链接要显示的字符）&quot;</code></pre><p>示例：</p>
-<center>
-
-<p><img src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3588082372,9374534&fm=26&gp=0.jpg" alt="photoname" title="咱们裸熊"></p>
-</center>
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -2211,7 +2158,7 @@ $array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
