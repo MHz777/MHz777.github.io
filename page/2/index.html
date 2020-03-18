@@ -234,6 +234,400 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/16/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">PHP学习（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-16T17:58:00+08:00">
+                2020-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、-什么是PHP？"><a href="#一、-什么是PHP？" class="headerlink" title="一、 什么是PHP？"></a>一、 什么是PHP？</h2><p>最近因为要做毕设所以在自学PHP，这篇文章记录自己的学习过程。</p>
+<center>
+
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582038188844&di=140bf5d58767b98893e6de95778e2ce8&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F36%2F14%2F5811c48853d93_610.jpg" alt="PHP"></p>
+</center>
+PHP即“超文本预处理器”，是一种通用开源脚本语言。PHP是在服务器端执行的脚本语言，与C语言类似，是常用的网站编程语言。PHP独特的语法混合了C、Java、Perl以及 PHP 自创的语法。利于学习，使用广泛，主要适用于Web开发领域。
+
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a>二、基础语法</h2><ul>
+<li><p>设置编码格式</p>
+<pre><code>header(&apos;content-type:text/html;charset=utf-8&apos;);</code></pre></li>
+<li><p>输出方法 echo</p>
+<p>  类似于JavaScript中的document.write()               </p>
+<pre><code>echo&quot;hello world!&quot;;//echo中使用.拼接字符串
+例:
+echo &apos;abc&apos;.&apos;bcd&apos;; //abcbcd</code></pre><p>注：php文件命名不可使用中文，不然会报错。</p>
+</li>
+<li><p>定义变量</p>
+<p>  定义方式：$ + ValueName;</p>
+<pre><code>$num = 1;</code></pre></li>
+<li><p>if语句</p>
+</li>
+</ul>
+<p>语法规则和其他语言相同</p>
+<pre><code>$male = false;
+if ($male == false){
+    echo &quot;人家是女孩纸&quot;;
+}else{
+    echo &quot;哥们是纯爷们&quot;;
+}</code></pre><ul>
+<li>switch语句</li>
+</ul>
+<p>规则相同</p>
+<pre><code>$day = &quot;monday&quot;;
+switch($day){
+    case &apos;monday&apos;:
+    echo &apos;上班&apos;;
+    break;
+    case &apos;Tuesday&apos;:
+    echo &apos;上班&apos;;
+    break;
+    case &apos;Wednesday&apos;:
+    echo &apos;上班&apos;;
+    break;
+    case &apos;Thursday&apos;:
+    echo &apos;上班&apos;;
+    break;
+    case &apos;Friday&apos;:
+    echo &apos;上班&apos;;
+    break;
+    case &apos;Saturday&apos;:
+    echo &apos;依旧上班&apos;;
+    break;
+    case &apos;Sunday&apos;:
+    echo &apos;终于可以休息了&apos;;
+    break; 
+}</code></pre><ul>
+<li>for循环</li>
+</ul>
+<p>在php中for循环除了定义变量方法不同其他都相同，while循环和dowhile循环语法相同不再阐述</p>
+<pre><code>for($i=1;$i&lt;10;$i++){
+    echo &apos;&lt;br&gt;&apos;;
+    echo &apos;感觉自己萌萌哒&apos;.$i;
+
+}</code></pre><ul>
+<li><p>数组</p>
+<p>定义方式:<br>$arryName = array(element);</p>
+<pre><code>$array1 = array(&apos;1&apos;,&apos;asdasd&apos;,2);</code></pre></li>
+</ul>
+<p><strong>注:使用echo不能遍历数组</strong><br>遍历数组使用print_r()方法,或者for循环,在php中数组没有arr.length方法，使用count(arrName)方法获取数组长度</p>
+<pre><code>print_r($array1);//Array ( [0] =&gt; 1 [1] =&gt; asdasd [2] =&gt; 2 )
+
+echo $array2[name];//mhs
+
+//遍历普通数组
+for($i=1;$i&lt;count($array1);$i++){
+echo &apos;&lt;br&gt;&apos;;
+echo $array1[$i];
+}</code></pre><ul>
+<li>PHP 关联数组</li>
+</ul>
+<p>关联数组是使用您分配给数组的指定键的数组。有两种创建关联数组的方法：</p>
+<pre><code>$array2 = array(&apos;name&apos;=&gt;&apos;mhs&apos;,&apos;age&apos;=&gt;18,&apos;gender&apos;=&gt;&apos;male&apos;);</code></pre><p>或者</p>
+<pre><code>$array2[&apos;name&apos;]=&quot;mhs&quot;;
+$array2[&apos;age&apos;]=&quot;18&quot;;
+$array2[&apos;gender&apos;]=&quot;male&quot;;</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/Ajax%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/16/Ajax%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">Ajax学习（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-16T17:50:22+08:00">
+                2020-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、开发环境"><a href="#一、开发环境" class="headerlink" title="一、开发环境"></a>一、开发环境</h2><p>今天开始学习Ajax的使用方法，学习之前先了解Ajax到底是什么呢？<br><br><br><br></p>
+<center>
+
+<p><img src="http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=ajax&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=3271358859,1698511636&os=957089567,1342816917&simid=4135904681,565952778&pn=52&rn=1&di=84920&ln=1872&fr=&fmq=1582382491034_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg3.redocn.com%2Ftupian%2F20120601%2FAzimudatouyingwenlogozhiAjax_1412075_small.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined" alt="ajax"></p>
+</center>
+
+
+<p>Ajax 即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式、快速动态网页应用的网页开发技术，无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<p>由于Ajax进行动态的数据交互，需要在服务器环境下使用，所以学习Ajax前需要搭建服务器环境。<br>由于本人最近正在学习PHP，使用PHPstudy搭建服务器环境，在此不作过多说明。学习Ajax前需要先了解http协议。</p>
+<h2 id="二、HTTP-协议"><a href="#二、HTTP-协议" class="headerlink" title="二、HTTP 协议"></a>二、HTTP 协议</h2><h2 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h2><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。。</p>
+<p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
+<h2 id="HTTP-工作原理"><a href="#HTTP-工作原理" class="headerlink" title="HTTP 工作原理"></a>HTTP 工作原理</h2><p>HTTP协议工作于客户端-服务端架构上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。</p>
+<p>Web服务器有：Apache服务器，IIS服务器（Internet Information Services）等。</p>
+<p>Web服务器根据接收到的请求后，向客户端发送响应信息。</p>
+<p>HTTP默认端口号为80，但是你也可以改为8080或者其他端口。</p>
+<h3 id="HTTP三点注意事项："><a href="#HTTP三点注意事项：" class="headerlink" title="HTTP三点注意事项："></a>HTTP三点注意事项：</h3><ul>
+<li>HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</li>
+<li>HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</li>
+<li>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</li>
+</ul>
+<p>以下图表展示了HTTP协议通信流程：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/11/cgiarch.gif" alt=""></p>
+<h2 id="HTTP-消息结构"><a href="#HTTP-消息结构" class="headerlink" title="HTTP 消息结构"></a>HTTP 消息结构</h2><p>HTTP是基于客户端/服务端（C/S）的架构模型，通过一个可靠的链接来交换信息，是一个无状态的请求/响应协议。一个HTTP”客户端”是一个应用程序（Web浏览器或其他任何客户端），通过连接到服务器达到向服务器发送一个或多个HTTP的请求的目的。</p>
+<h2 id="客户端请求消息"><a href="#客户端请求消息" class="headerlink" title="客户端请求消息"></a>客户端请求消息</h2><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成，下图给出了请求报文的一般格式。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/11/2012072810301161.png" alt=""></p>
+<h2 id="服务器响应消息"><a href="#服务器响应消息" class="headerlink" title="服务器响应消息"></a>服务器响应消息</h2><p>HTTP响应也由四个部分组成，分别是：状态行、消息报头、空行和响应正文。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/11/httpmessage.jpg" alt=""></p>
+<p>以上部分转载自菜鸟教程，侵删。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/markdown%E7%9A%84%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -500,7 +894,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -511,7 +905,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -522,7 +916,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
