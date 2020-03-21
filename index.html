@@ -234,6 +234,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/22/thinkphp%E5%AE%9E%E7%8E%B0like%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHS">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHz777">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/22/thinkphp%E5%AE%9E%E7%8E%B0like%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/" itemprop="url">ThinkPHP实现like模糊查询</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-22T00:00:03+08:00">
+                2020-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ThinkPHP/" itemprop="url" rel="index">
+                    <span itemprop="name">ThinkPHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="本文讲述了如何使用thinkphp实现like模糊查询，分享给大家供大家参考"><a href="#本文讲述了如何使用thinkphp实现like模糊查询，分享给大家供大家参考" class="headerlink" title="本文讲述了如何使用thinkphp实现like模糊查询，分享给大家供大家参考"></a>本文讲述了如何使用thinkphp实现like模糊查询，分享给大家供大家参考</h3><p>最近在做毕业设计，做一个小程序，在设计搜索栏的时候，发现如果不使用模糊查询的话，会使很多内容都检索不到，使用模糊查询的话，会使用户的体验更佳。</p>
+<p>一、MySQL中模糊查询</p>
+<p> MySQL的模式匹配允许使用“_”匹配任何单个字符，而“%”匹配任意数目字符（包括零个字符）。在 MySQL中，SQL的模式缺省是忽略大小写的。</p>
+<p>  %：表示任意个或多个字符。可匹配任意类型和长度的字符</p>
+<p> 比如 SELECT * FROM user WHERE user_name LIKE ‘%三%’</p>
+<p> 将会把user_name为“张三”，“张李三”、“三只猫”，“唐三”等等有“三”的记录全找出来。</p>
+<p>二、数组方式作为查询条件</p>
+<p>在ThinkPHP中like查询怎么实现呢，方法如下：</p>
+<pre><code>$User = M(&quot;User&quot;); // 实例化User数据表
+$where = array(&apos;like&apos;);//设置查询条件
+$where[&apos;username&apos;] = array(&apos;like&apos;,&apos;%张%&apos;);
+
+$result = $User-&gt;where($where)-&gt;select();
+print_r($result);//返回数据为查询结果</code></pre><p>代码执行后会打印出查询结果，所有包含有“三”的字符串都会被检索出来。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1889,178 +2044,6 @@ name1=value1&amp;name2=value2</code></pre><p>有关 POST 请求的其他一些�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHS">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHz777">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/18/PHP%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url">PHP学习（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-18T21:17:00+08:00">
-                2020-02-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="PHP关联数组的遍历方法"><a href="#PHP关联数组的遍历方法" class="headerlink" title="PHP关联数组的遍历方法"></a>PHP关联数组的遍历方法</h3><p>php关联数组的遍历,使用foreach方法<br>代码：<br>        $array2 = array(‘name’=&gt;’mhs’,’age’=&gt;18,’gender’=&gt;’male’);</p>
-<pre><code>foreach($arry as $key =&gt; $value){
-    echo $key.&apos;----&apos;.$value;
-}</code></pre><p>输出</p>
-<pre><code>name----mhsage----18gender----male</code></pre><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>数组内包含数组即可</p>
-<pre><code>$starArry = array(
-    array(&apos;name&apos;=&gt;&apos;abc&apos;,&apos;age&apos;=&gt;&apos;15&apos;,&apos;gender&apos;=&gt;&apos;male&apos;),
-    array(&apos;name&apos;=&gt;&apos;qwe&apos;,&apos;age&apos;=&gt;&apos;18&apos;,&apos;gender&apos;=&gt;&apos;female&apos;),
-    array(&apos;name&apos;=&gt;&apos;asd&apos;,&apos;age&apos;=&gt;&apos;7&apos;,&apos;gender&apos;=&gt;&apos;male&apos;),
-    array(&apos;name&apos;=&gt;&apos;zxc&apos;,&apos;age&apos;=&gt;&apos;22&apos;,&apos;gender&apos;=&gt;&apos;female&apos;)
-);</code></pre><p>for循环遍历数组：</p>
-<pre><code>for ($i=0;$i&lt;count($starArry);$i++){
-    echo &apos;&lt;span&gt;&apos;.$starArry[$i][&apos;name&apos;].&apos;&lt;/span&gt;--&apos;.$starArry[$i][&apos;age&apos;].&apos;---&apos;.$starArry[$i][&apos;gender&apos;].&apos;&lt;br&gt;&apos;;
-    }
-//输出结果
-abc--15---male
-qwe--18---female
-asd--7---male
-zxc--22---female</code></pre><h2 id="PHP中输出html代码"><a href="#PHP中输出html代码" class="headerlink" title="PHP中输出html代码"></a>PHP中输出html代码</h2><p>需要注意的是如果在php文件中直接编写html代码，编译器是不会解析html代码的，输出到浏览器中时会直接包含代码极其样式，需要注意的是，<strong>html代码必须写在php代码标签的外面</strong></p>
-<p>例：</p>
-<pre><code>&lt;style&gt;&lt;/style&gt; // css代码 
-&lt;?php
-
-?&gt;
-&lt;span&gt;&lt;a&gt;ima&lt;/a&gt;&lt;/span&gt;</code></pre><h2 id="在php文件中引入php文件"><a href="#在php文件中引入php文件" class="headerlink" title="在php文件中引入php文件"></a>在php文件中引入php文件</h2><p>方法：<br>    在标签中添加php标签，然后再php标签内include’filePath/fileName.php’即可。</p>
-<pre><code>&lt;html&gt;
-&lt;body&gt;
-    &lt;?php
-        include &apos;path/fileName.php&apos;;
-    ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2115,7 +2098,7 @@ zxc--22---female</code></pre><h2 id="PHP中输出html代码"><a href="#PHP中输
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2126,7 +2109,7 @@ zxc--22---female</code></pre><h2 id="PHP中输出html代码"><a href="#PHP中输
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2137,7 +2120,7 @@ zxc--22---female</code></pre><h2 id="PHP中输出html代码"><a href="#PHP中输
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
